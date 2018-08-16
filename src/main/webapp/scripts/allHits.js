@@ -1,45 +1,47 @@
-function login() {
-	var successdata = { 
+function loginSuccess() {
+	var data = { 
 			userId		: 'seek', 
 			password	: 'mentore', 
 			userType	: 'admin'
 	}
-	var failuredata = { 
+	callWebservice('/rest/login/validateCredential', data, null, null, null, 'application/x-www-form-urlencoded');
+}
+
+function loginFailure() {
+	var data = { 
 			userId		: 'seek', 
 			password	: 'unknown', 
 			userType	: 'admin'
 	}
-	callWebservice('/rest/login/validateCredential', successdata, null, null, null, 'application/x-www-form-urlencoded');
+	callWebservice('/rest/login/validateCredential', data, null, null, null, 'application/x-www-form-urlencoded');
 }
 
-function resetPassword() {
-	var successdata = { 
+function resetPasswordSuccess() {
+	var data = { 
 			userId		: 'seek', 
 			userType	: 'admin'
 	}
-	var failuredata = { 
+	callWebservice('/rest/login/resetPassword', data, null, null, null, 'application/x-www-form-urlencoded');
+}
+
+function resetPasswordFailure() {
+	var data = { 
 			userId		: 'seek', 
 			userType	: 'tutor'
 	}
-	callWebservice('/rest/login/resetPassword', failuredata, null, null, null, 'application/x-www-form-urlencoded');
+	callWebservice('/rest/login/resetPassword', data, null, null, null, 'application/x-www-form-urlencoded');
 }
 
 function getErrorDetails() {
-	var data404 = { 
+	var data = { 
 			errorCode		: '404'
 	}
-	var data500 = { 
-			errorCode		: '500'
-	}
-	var dataUnknown = { 
-			errorCode		: '600'
-	}
-	callWebservice('/rest/commons/getErrorDetails', dataUnknown, null, null, null, 'application/x-www-form-urlencoded');
+	callWebservice('/rest/commons/getErrorDetails', data, null, null, null, 'application/x-www-form-urlencoded');
 }
 
-function updateEnquiryDetails() {
+function checkApplicationJSONrestMapping() {
 	var form = {
-			enquiryId					: 2
-		};
-	callWebservice('/rest/login/updateEnquiryDetails', encodeObjectAsJSON(form));
+		whoActed	: $('#whoActed').val()
+	};
+	callWebservice('/rest/login/checkApplicationJSONrestMapping', encodeObjectAsJSON(form));
 }

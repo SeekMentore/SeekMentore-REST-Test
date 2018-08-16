@@ -5,8 +5,8 @@ commonErrorHandler = function(error) {
 	$('#response').html('Connection lost.<br/>Please check your network connection and refresh the page.');
 }
 
-commmonSuccessHandler = function(response) {
-	$('#response').html(encodeObjectAsJSON(response));
+commmonSuccessHandler = function(data) {
+	$('#response').html(encodeObjectAsJSON(data));
 }
 
 function encodeObjectAsJSON(object) {
@@ -27,19 +27,10 @@ function callWebservice(url, data, success, failure, method, contentType) {
         cache		: false,
         dataType	: 'json',
         success		: function(data) {
-        				var response = decodeObjectFromJSON(data.response)
-			        	if (null != success) {
-			        		success(response);
-			        	} else {
-			        		commmonSuccessHandler(response);
-			        	}
+        				commmonSuccessHandler(data);
 		},
 		error		: function(error) {
-			        	if (null != failure) {
-			        		failure(error);
-			        	} else {
-			        		commonErrorHandler(error);
-			        	}
+						commonErrorHandler(error);
 		}
     });
 }

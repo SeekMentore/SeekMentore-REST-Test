@@ -15,12 +15,6 @@
   </div>
 </div>
 
-
-<br/>
-<button onclick="login()">Login</button>
-<button onclick="resetPassword()">Reset Password</button>
-<button onclick="getErrorDetails()">Get Error Details</button>
-<button onclick="updateEnquiryDetails()">Check Application JSON REST Mapping</button>
 <br/>
 <h1>Below are some instructions about JSON Response</h1>
 <ol>
@@ -37,14 +31,123 @@
 	<li>Now inorder to get the specific output for the AJAX call for Login</li>
 	<li>var success = restResponse.success</li>
 	<li>var redirectTo = restResponse.redirectTo</li>
+	<li>If you have any doubt then view the Page Source</li>
+	<li>allHits.js - This file includes all function which are called on the button hits. Here you will find the paramters passed and how common webservice function is called</li>
+	<li>utilities.js - This file includes all utility function, callWebservice - This is the function that makes AJAX hit. It is written in jQuery</li>
 </ol>
-<h3>Response JSON for the call appears below</h3>
-Response JSON = <div id="response"></div>
-
-
-
-
-
+<br/>
+<div style="overflow-x:scroll">
+	<table border="1" align="center" width="90%">
+		<tr>
+			<th align="left">The response which appear below is encoded, as AJAX returns a JSON object but we cannot print JSON object on UI so we have printed {JSON.stringify(response)} - Where response was returned from AJAX</th>
+		</tr>
+		<tr>
+			<th align="left">Encoded JSON Response = <span id="response"></span></th>
+		</tr>
+	</table>
+	<table border="1" align="center" width="90%" style="overflow-x:scroll">
+		<tr>
+			<th>Section/Action</th>
+			<th>REST URL</th>
+			<th>Success Params</th>
+			<th>Success Response Check</th>
+			<th>Failure Params</th>
+			<th>Failure Response Check</th>
+			<th>Application Type</th>
+		</tr>
+		<tr>
+			<td>Login Button</td>
+			<td>/rest/login/validateCredential</td>
+			<td>
+				<pre>
+					var successdata = { 
+						userId		: 'seek', 
+						password	: 'mentore', 
+						userType	: 'admin'
+					}
+				</pre>
+			</td>
+			<td><button onclick="loginSuccess()">Login Success</button></td>
+			<td>
+				<pre>
+					var failuredata = { 
+							userId		: 'seek', 
+							password	: 'unknown', 
+							userType	: 'admin'
+					}
+				</pre>
+			</td>
+			<td><button onclick="loginFailure()">Login Failure</button></td>
+			<td>application/x-www-form-urlencoded</td>
+		</tr>
+		<tr>
+			<td>Reset Password Button</td>
+			<td>/rest/login/resetPassword</td>
+			<td>
+				<pre>
+					var successdata = { 
+						userId		: 'seek', 
+						userType	: 'admin'
+					}
+				</pre>
+			</td>
+			<td><button onclick="resetPasswordSuccess()">Reset Password Success</button></td>
+			<td>
+				<pre>
+					var failuredata = { 
+							userId		: 'seek', 
+							userType	: 'tutor'
+					}
+				</pre>
+			</td>
+			<td><button onclick="resetPasswordFailure()">Reset Password Failure</button></td>
+			<td>application/x-www-form-urlencoded</td>
+		</tr>
+		<tr>
+			<td>Get Error Details AJAX</td>
+			<td>/rest/commons/getErrorDetails</td>
+			<td>
+				<pre>
+					var successdata = { 
+						errorCode		: '404'
+					}
+				</pre>
+			</td>
+			<td><button onclick="getErrorDetails()">Get Error Details</button></td>
+			<td>
+				<pre>
+					No Failure Data
+					Will always get the success response
+				</pre>
+			</td>
+			<td>No Failure Data</td>
+			<td>application/x-www-form-urlencoded</td>
+		</tr>
+		<tr>
+			<td>Check Application JSON REST Mapping</td>
+			<td>/rest/login/checkApplicationJSONrestMapping</td>
+			<td>
+				<pre>
+					var form = {
+						// whoActed - This is a property in our Java class
+						// With which this Input JSON is mapped
+						whoActed	: {THE VALUE YOU WILL ENTER IN THIS TEXTBOX}
+					};
+				</pre>
+				WHO ACTED TEXT BOX  = <input name="whoActed" id="whoActed" size=10/>
+			</td>
+			<td><button onclick="checkApplicationJSONrestMapping()">Check Application JSON REST Mapping</button></td>
+			<td>
+				<pre>
+					No Failure Data
+					Just for testing application/json AJAX Mapping
+				</pre>
+			</td>
+			<td>No Failure Data</td>
+			<td>application/json</td>
+		</tr>
+	</table>
+</div>
 <script src="scripts/lib/jQuery/v-3.1.1/jquery-3.1.1.min.js"></script>
 <script src="scripts/utilities.js"></script>
 <script src="scripts/allHits.js"></script>
