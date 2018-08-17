@@ -34,7 +34,8 @@ function resetPasswordFailure() {
 
 function getErrorDetails() {
 	var data = { 
-			errorCode		: '404'
+			errorCode		: '101'
+			// Valid error codes 101, 102, 103, 104, 105, 106
 	}
 	callWebservice('/rest/commons/getErrorDetails', data, null, null, null, 'application/x-www-form-urlencoded');
 }
