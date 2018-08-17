@@ -2,7 +2,7 @@ var server = 'http://13.127.139.107:8080'
 var ctxPath = '/seekmentorerestdummy';
 
 commonErrorHandler = function(error) {
-	$('#response').html('Connection lost.<br/>Please check your network connection and refresh the page.');
+	$('#response').html(encodeObjectAsJSON(error));
 }
 
 commmonSuccessHandler = function(data) {
