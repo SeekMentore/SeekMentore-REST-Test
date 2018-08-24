@@ -39,10 +39,3 @@ function getErrorDetails() {
 	}
 	callWebservice('/rest/commons/getErrorDetails', data, null, null, null, 'application/x-www-form-urlencoded');
 }
-
-function checkApplicationJSONrestMapping() {
-	var form = {
-		whoActed	: $('#whoActed').val()
-	};
-	callWebservice('/rest/login/checkApplicationJSONrestMapping', encodeObjectAsJSON(form));
-}

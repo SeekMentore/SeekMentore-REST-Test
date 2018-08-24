@@ -41,23 +41,23 @@
 			<td>Login Button</td>
 			<td>/rest/login/validateCredential</td>
 			<td>
-				<pre>
+				<blockquote><pre><code>
 					var successdata = { 
 						userId		: 'seek', 
 						password	: 'mentore', 
 						userType	: 'admin'
 					}
-				</pre>
+				</code></pre></blockquote>
 			</td>
 			<td><button onclick="loginSuccess()">Login Success</button></td>
 			<td>
-				<pre>
+				<blockquote><pre><code>
 					var failuredata = { 
 							userId		: 'seek', 
 							password	: 'unknown', 
 							userType	: 'admin'
 					}
-				</pre>
+				</code></pre></blockquote>
 			</td>
 			<td><button onclick="loginFailure()">Login Failure</button></td>
 			<td>application/x-www-form-urlencoded</td>
@@ -66,21 +66,21 @@
 			<td>Reset Password Button</td>
 			<td>/rest/login/resetPassword</td>
 			<td>
-				<pre>
+				<blockquote><pre><code>
 					var successdata = { 
 						userId		: 'seek', 
 						userType	: 'admin'
 					}
-				</pre>
+				</code></pre></blockquote>
 			</td>
 			<td><button onclick="resetPasswordSuccess()">Reset Password Success</button></td>
 			<td>
-				<pre>
+				<blockquote><pre><code>
 					var failuredata = { 
 							userId		: 'seek', 
 							userType	: 'tutor'
 					}
-				</pre>
+				</code></pre></blockquote>
 			</td>
 			<td><button onclick="resetPasswordFailure()">Reset Password Failure</button></td>
 			<td>application/x-www-form-urlencoded</td>
@@ -89,45 +89,22 @@
 			<td>Get Error Details AJAX</td>
 			<td>/rest/commons/getErrorDetails</td>
 			<td>
-				<pre>
+				<blockquote><pre><code>
 					var successdata = { 
 						errorCode		: '101'
 						// Valid error codes 101, 102, 103, 104, 105, 106
 					}
-				</pre>
+				</code></pre></blockquote>
 			</td>
 			<td><button onclick="getErrorDetails()">Get Error Details</button></td>
 			<td>
-				<pre>
+				<blockquote><pre><code>
 					No Failure Data
 					Will always get the success response
-				</pre>
+				</code></pre></blockquote>
 			</td>
 			<td>No Failure Data</td>
 			<td>application/x-www-form-urlencoded</td>
-		</tr>
-		<tr>
-			<td>Check Application JSON REST Mapping</td>
-			<td>/rest/login/checkApplicationJSONrestMapping</td>
-			<td>
-				<pre>
-					var form = {
-						// whoActed - This is a property in our Java class
-						// With which this Input JSON is mapped
-						whoActed	: {THE VALUE YOU WILL ENTER IN THIS TEXTBOX}
-					};
-				</pre>
-				WHO ACTED TEXT BOX  = <input name="whoActed" id="whoActed" size=10/>
-			</td>
-			<td><button onclick="checkApplicationJSONrestMapping()">Check Application JSON REST Mapping</button></td>
-			<td>
-				<pre>
-					No Failure Data
-					Just for testing application/json AJAX Mapping
-				</pre>
-			</td>
-			<td>No Failure Data</td>
-			<td>application/json</td>
 		</tr>
 	</table>
 </div>

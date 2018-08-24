@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link rel="stylesheet" href="css/lib/w3.css" />
+	<link rel="stylesheet" href="css/style.css" />
+	<link rel="shortcut icon" href="favicon.ico" />
+	<title>Seek Mentore</title>
+</head>
+<body>
+<div class="w3-container w3-green banner">
+  <div class="company-logo">
+	  <img src="images/company-logo-complete.png" />
+  </div>
+</div>
+<h2>
+<a href="./index.html">Back to Details</a>
+</h2>
+<br/>
+<div style="overflow-x:scroll">
+	<table border="1" align="center" width="90%">
+		<tr>
+			<th align="left">The response which appear below is encoded, as AJAX returns a JSON object but we cannot print JSON object on UI so we have printed {JSON.stringify(response)} - Where response was returned from AJAX</th>
+		</tr>
+		<tr>
+			<th align="left">Encoded JSON Response = <span id="response"></span></th>
+		</tr>
+	</table>
+	<table border="1" align="center" width="90%" style="overflow-x:scroll">
+		<tr>
+			<th>Section/Action</th>
+			<th>REST URL</th>
+			<th>Success Params</th>
+			<th>Success Response Check</th>
+			<th>Failure Params</th>
+			<th>Failure Response Check</th>
+			<th>Application Type</th>
+		</tr>
+		<tr>
+			<td>Get Login Basic Info</td>
+			<td>/rest/commons/getLoginBasicInfo</td>
+			<td>
+				<blockquote><pre><code>
+					NO DATA TO BE SENT
+				</code></pre></blockquote>
+			</td>
+			<td><button onclick="getLoginBasicInfo()">Get Login Basic Info</button></td>
+			<td>
+				<blockquote><pre><code>
+					NO DATA TO BE SENT
+				</code></pre></blockquote>
+			</td>
+			<td>No failure data</td>
+			<td>application/json</td>
+		</tr>
+		<tr>
+			<td>Get Email Templates</td>
+			<td>/rest/commons/getEmailTemplates</td>
+			<td>
+				<blockquote><pre><code>
+					NO DATA TO BE SENT
+				</code></pre></blockquote>
+			</td>
+			<td><button onclick="getEmailTemplates()">Get Email Templates</button></td>
+			<td>
+				<blockquote><pre><code>
+					NO DATA TO BE SENT
+				</code></pre></blockquote>
+			</td>
+			<td>No failure data</td>
+			<td>application/json</td>
+		</tr>
+		<tr>
+			<td>Load Email Template</td>
+			<td>/rest/commons/loadEmailTemplate</td>
+			<td>
+				<blockquote><pre><code>
+					var successdata = { 
+						templateId		: '01'
+						// Valid templateId 01, 02
+					}
+				</code></pre></blockquote>
+			</td>
+			<td><button onclick="loadEmailTemplate()">Load Email Template</button></td>
+			<td>
+				<blockquote><pre><code>
+					No Failure Data
+					Will always get the success response
+				</code></pre></blockquote>
+			</td>
+			<td>No Failure Data</td>
+			<td>application/x-www-form-urlencoded</td>
+		</tr>
+		<tr>
+			<td>Logout</td>
+			<td>/rest/login/logout</td>
+			<td>
+				<blockquote><pre><code>
+					NO DATA TO BE SENT
+				</code></pre></blockquote>
+			</td>
+			<td><button onclick="logoutSuccess()">Logout Success</button></td>
+			<td>
+				<blockquote><pre><code>
+					NO DATA TO BE SENT
+				</code></pre></blockquote>
+			</td>
+			<td><button onclick="logoutFailure()">Logout Failure</button></td>
+			<td>application/json</td>
+		</tr>
+		<tr>
+			<td>Send Email</td>
+			<td>/rest/commons/sendEmail</td>
+			<td>
+				<xmp>
+					<form id="email-form" target="ifrTarget" method="post" enctype="multipart/form-data">
+						To <input type="text" name="to" id="to"/><br/>
+						CC <input type="text" name="cc" id="cc"/><br/>
+						BCC <input type="text" name="bcc" id="bcc"/><br/>
+						Subject <input type="text" name="subject" id="subject"/><br/>
+						Body <input type="text" name="body" id="body"/><br/>
+						File 1<input type="file" name="inputFile1" name="inputFile1" size="25" accept=".pdf" /><br/>
+						File 2<input type="file" name="inputFile2" name="inputFile2" size="25" accept=".pdf" /><br/>
+						File 3<input type="file" name="inputFile3" name="inputFile3" size="25" accept=".pdf" /><br/>
+						File 4<input type="file" name="inputFile4" name="inputFile4" size="25" accept=".pdf" /><br/>
+					</form>
+					<iframe id="ifrTarget" name="ifrTarget" width="0" height="0"></iframe>
+				</xmp>
+				<blockquote><pre><code>
+					Use this Below form to test email, what ever you write in fields and the documents you upload
+					You will receive an email with those within next 10 minutes on mkumar123.mk@gmail.com
+					<form id="email-form" target="ifrTarget" method="post" enctype="multipart/form-data">
+						To <input type="text" name="to" id="to"/><br/>
+						CC <input type="text" name="cc" id="cc"/><br/>
+						BCC <input type="text" name="bcc" id="bcc"/><br/>
+						Subject <input type="text" name="subject" id="subject"/><br/>
+						Body <input type="text" name="body" id="body"/><br/>
+						File 1<input type="file" name="inputFile1" name="inputFile1" size="25" accept=".pdf" /><br/>
+						File 2<input type="file" name="inputFile2" name="inputFile2" size="25" accept=".pdf" /><br/>
+						File 3<input type="file" name="inputFile3" name="inputFile3" size="25" accept=".pdf" /><br/>
+						File 4<input type="file" name="inputFile4" name="inputFile4" size="25" accept=".pdf" /><br/>
+					</form>
+					<iframe id="ifrTarget" name="ifrTarget" width="0" height="0"></iframe>
+				</code></pre></blockquote>
+			</td>
+			<td><button onclick="sendEmail()">Send Email</button></td>
+			<td>
+				<blockquote><pre><code>
+					No Failure Data
+				</code></pre></blockquote>
+			</td>
+			<td>No Failure Data</td>
+			<td>FORM SUBMIT   enctype="multipart/form-data"</td>
+		</tr>
+	</table>
+</div>
+<script src="scripts/lib/jQuery/v-3.1.1/jquery-3.1.1.min.js"></script>
+<script src="scripts/utilities.js"></script>
+<script src="scripts/milestone2AllHits.js"></script>
+</body>
+</html>
