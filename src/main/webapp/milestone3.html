@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link rel="stylesheet" href="css/lib/w3.css" />
+	<link rel="stylesheet" href="css/style.css" />
+	<link rel="shortcut icon" href="favicon.ico" />
+	<title>Seek Mentore</title>
+</head>
+<body>
+<div class="w3-container w3-green banner">
+  <div class="company-logo">
+	  <img src="images/company-logo-complete.png" />
+  </div>
+</div>
+<h2>
+<a href="./index.html">Back to Details</a>
+</h2>
+<br/>
+<div style="overflow-x:scroll">
+	<table border="1" align="center" width="90%">
+		<tr>
+			<th align="left">The response which appear below is encoded, as AJAX returns a JSON object but we cannot print JSON object on UI so we have printed {JSON.stringify(response)} - Where response was returned from AJAX</th>
+		</tr>
+		<tr>
+			<th align="left">Encoded JSON Response = <span id="response"></span></th>
+		</tr>
+	</table>
+	<table border="1" align="center" width="90%" style="overflow-x:scroll">
+		<tr>
+			<th>Section/Action</th>
+			<th>REST URL</th>
+			<th>Success Params</th>
+			<th>Success Response Check</th>
+			<th>Failure Params</th>
+			<th>Failure Response Check</th>
+			<th>Application Type</th>
+		</tr>
+		<tr>
+			<td>check UI path Access</td>
+			<td>/rest/login/checkUIpathAccess</td>
+			<td>
+				<blockquote><pre><code>
+					var successdata = { 
+						urlPath: '{Anything can be passed except for "seek"}'
+					}
+				</code></pre></blockquote>
+			</td>
+			<td><button onclick="checkUIpathAccessSuccess()">check UI path Access Success</button></td>
+			<td>
+				<blockquote><pre><code>
+					var failuredata = { 
+						urlPath: 'seek'
+					}
+				</code></pre></blockquote>
+			</td>
+			<td><button onclick="checkUIpathAccessFailure()">check UI path Access Failure</button></td>
+			<td>application/x-www-form-urlencoded</td>
+		</tr>
+	</table>
+</div>
+<script src="scripts/lib/jQuery/v-3.1.1/jquery-3.1.1.min.js"></script>
+<script src="scripts/utilities.js"></script>
+<script src="scripts/milestone3AllHits.js"></script>
+</body>
+</html>
