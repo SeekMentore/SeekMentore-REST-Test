@@ -38,7 +38,7 @@
 			<th>Application Type</th>
 		</tr>
 		<tr>
-			<td>check UI path Access</td>
+			<td>Check UI path Access</td>
 			<td>/rest/login/checkUIpathAccess</td>
 			<td>
 				<blockquote><pre><code>
@@ -47,7 +47,7 @@
 					}
 				</code></pre></blockquote>
 			</td>
-			<td><button onclick="checkUIpathAccessSuccess()">check UI path Access Success</button></td>
+			<td><button onclick="checkUIpathAccessSuccess()">Check UI path Access Success</button></td>
 			<td>
 				<blockquote><pre><code>
 					var failuredata = { 
@@ -55,8 +55,170 @@
 					}
 				</code></pre></blockquote>
 			</td>
-			<td><button onclick="checkUIpathAccessFailure()">check UI path Access Failure</button></td>
+			<td><button onclick="checkUIpathAccessFailure()">Check UI path Access Failure</button></td>
 			<td>application/x-www-form-urlencoded</td>
+		</tr>
+		<tr>
+			<td>Alerts Reminders Grid</td>
+			<td>/rest/employee/alertsRemindersGrid</td>
+			<td>
+				<blockquote><pre><code>
+					var gridComponent = { 
+							start : 0,
+							limit : 100,
+							otherParams : encodeObjectAsJSON(otherParams),
+							sorters : [
+								{
+									id : 'S1',
+									mapping : 'actionDateMillis',
+									columnName : 'Action Date',
+									order : 'ASC'
+								},
+								{
+									id : 'S2',
+									mapping : 'initiatedBy',
+									columnName : 'Initiated By',
+									order : 'DESC'
+								}
+							],
+							filters : [
+								{
+									id : 'F1',
+									type : 'string',
+									mapping : 'subject',
+									columnId : 'subjectColumn',
+									stringValue : 'search this text'
+								},
+								{
+									id : 'F2',
+									type : 'date',
+									mapping : 'initiatedDateMillis',
+									columnId : 'initiatedDateMillisColumn',
+									// Send the milliseconds of the date selected 
+									beforeDateMillis : (new Date()).getTime(),
+									onDateMillis : (new Date()).getTime(),
+									afterDateMillis : (new Date()).getTime()
+								}
+							]
+					}
+				</code></pre></blockquote>
+			</td>
+			<td><button onclick="alertsRemindersGrid()">Alerts Reminders Grid</button></td>
+			<td>
+				<blockquote><pre><code>
+					NO DATA TO BE SENT
+				</code></pre></blockquote>
+			</td>
+			<td>No failure data</td>
+			<td>application/json</td>
+		</tr>
+		<tr>
+			<td>Tasks Grid</td>
+			<td>/rest/employee/tasksGrid</td>
+			<td>
+				<blockquote><pre><code>
+					var gridComponent = { 
+							start : 0,
+							limit : 100,
+							otherParams : encodeObjectAsJSON(otherParams),
+							sorters : [
+								{
+									id : 'S1',
+									mapping : 'actionDateMillis',
+									columnName : 'Action Date',
+									order : 'ASC'
+								},
+								{
+									id : 'S2',
+									mapping : 'initiatedBy',
+									columnName : 'Initiated By',
+									order : 'DESC'
+								}
+							],
+							filters : [
+								{
+									id : 'F1',
+									type : 'string',
+									mapping : 'subject',
+									columnId : 'subjectColumn',
+									stringValue : 'search this text'
+								},
+								{
+									id : 'F2',
+									type : 'date',
+									mapping : 'initiatedDateMillis',
+									columnId : 'initiatedDateMillisColumn',
+									// Send the milliseconds of the date selected 
+									beforeDateMillis : (new Date()).getTime(),
+									onDateMillis : (new Date()).getTime(),
+									afterDateMillis : (new Date()).getTime()
+								}
+							]
+					}
+				</code></pre></blockquote>
+			</td>
+			<td><button onclick="tasksGrid()">Tasks Grid</button></td>
+			<td>
+				<blockquote><pre><code>
+					NO DATA TO BE SENT
+				</code></pre></blockquote>
+			</td>
+			<td>No failure data</td>
+			<td>application/json</td>
+		</tr>
+		<tr>
+			<td>Workflows Grid</td>
+			<td>/rest/employee/workflowsGrid</td>
+			<td>
+				<blockquote><pre><code>
+					var gridComponent = { 
+							start : 0,
+							limit : 100,
+							otherParams : encodeObjectAsJSON(otherParams),
+							sorters : [
+								{
+									id : 'S1',
+									mapping : 'actionDateMillis',
+									columnName : 'Action Date',
+									order : 'ASC'
+								},
+								{
+									id : 'S2',
+									mapping : 'initiatedBy',
+									columnName : 'Initiated By',
+									order : 'DESC'
+								}
+							],
+							filters : [
+								{
+									id : 'F1',
+									type : 'string',
+									mapping : 'subject',
+									columnId : 'subjectColumn',
+									stringValue : 'search this text'
+								},
+								{
+									id : 'F2',
+									type : 'date',
+									mapping : 'initiatedDateMillis',
+									columnId : 'initiatedDateMillisColumn',
+									// Send the milliseconds of the date selected 
+									beforeDateMillis : (new Date()).getTime(),
+									onDateMillis : (new Date()).getTime(),
+									afterDateMillis : (new Date()).getTime()
+								}
+							]
+					}
+				</code></pre></blockquote>
+			</td>
+			<td><button onclick="workflowsGrid()">Workflows Grid</button></td>
+			<td>
+				<blockquote><pre><code>
+					NO DATA TO BE SENT
+				</code></pre></blockquote>
+			</td>
+			<td>No failure data</td>
+			<td>application/json</td>
 		</tr>
 	</table>
 </div>
