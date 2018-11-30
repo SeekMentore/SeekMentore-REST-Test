@@ -1,5 +1,8 @@
-var server = 'http://13.127.139.107:8080'
-var ctxPath = '/seekmentorerestdummy';
+/*var server = 'http://13.127.139.107:8080'
+var ctxPath = '/seekmentorerestdummy';*/
+
+var server = 'http://localhost:8080'
+var ctxPath = '/seekmentore';
 
 commonErrorHandler = function(error) {
 	$('#response').html(encodeObjectAsJSON(error));
